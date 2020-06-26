@@ -1,0 +1,19 @@
+﻿@model CRUD.Models.ViewModels.TablaViewModel1
+@{
+    ViewBag.Title = "Nuevo";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("Nuevo","Tabla",FormMethod.Post)) {
+<div class="row">
+    <div class="col-md-12">
+        @Html.LabelFor(d => d.Nombre)
+        @Html.TextBoxFor(d => d.Nombre, "", new { @class = "form-control" })
+        @Html.LabelFor(d => d.Correo)
+        @Html.TextBoxFor(d => d.Correo, "", new { @class = "form-control" })
+        @Html.LabelFor(d => d.Fecha_Nacimiento)<br />
+        @Html.EditorFor(d => d.Fecha_Nacimiento, "", new { @class = "form-control" })
+    </div>
+</div>
+}

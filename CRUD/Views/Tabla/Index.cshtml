@@ -1,0 +1,29 @@
+﻿@model List<CRUD.Models.ViewModels.TablaViewModel>
+@{
+    ViewBag.Title = "Mis Datos";
+}
+
+<h2>@ViewBag.Tittle</h2>
+
+<div class="row" style="text-align:right;padding:5px;">
+    <a href="~/tabla/Nuevo" class="btn btn-primary">Nuevo</a>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Correo</th>
+            </tr>
+            @foreach (var Elemento in Model)
+            {
+                <tr>
+                    <td>@Elemento.Id</td>
+                    <td>@Elemento.Nombre</td>
+                    <td>@Elemento.Correo</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
