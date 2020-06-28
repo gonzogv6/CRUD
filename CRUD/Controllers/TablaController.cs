@@ -15,7 +15,7 @@ namespace CRUD.Controllers
         public ActionResult Index()
         {
             List<TablaViewModel> lst;
-            using (CRUDEntities db = new CRUDEntities())
+            using (CRUDEntities1 db = new CRUDEntities1())
             {
                  lst = (from d in db.tabla
                            select new TablaViewModel
@@ -38,7 +38,7 @@ namespace CRUD.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    using (CRUDEntities db = new CRUDEntities())
+                    using (CRUDEntities1 db = new CRUDEntities1())
                     {
                         var oTabla = new tabla();
                         oTabla.correo = model.Correo;
@@ -62,12 +62,12 @@ namespace CRUD.Controllers
         public ActionResult Editar(int Id)
         {
             TablaViewModel1 model = new TablaViewModel1();
-            using (CRUDEntities db = new CRUDEntities())
+            using (CRUDEntities1 db = new CRUDEntities1())
             {
                 var oTabla = db.tabla.Find(Id);
                 model.Nombre = oTabla.nombre;
                 model.Correo = oTabla.correo;
-                model.Fecha_Nacimiento = oTabla.fecha_nacimiento;
+                model.Fecha_Nacimiento = (DateTime)oTabla.fecha_nacimiento;
                 model.Id = oTabla.id;
             }
             return View(model);
@@ -79,7 +79,7 @@ namespace CRUD.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    using (CRUDEntities db = new CRUDEntities())
+                    using (CRUDEntities1 db = new CRUDEntities1())
                     {
                         var oTabla = db.tabla.Find(model.Id);
                         oTabla.correo = model.Correo;
@@ -102,7 +102,7 @@ namespace CRUD.Controllers
         [HttpGet]
         public ActionResult Eliminar(int Id)
         {
-            using (CRUDEntities db = new CRUDEntities())
+            using (CRUDEntities1 db = new CRUDEntities1())
             {
                 
                 var oTabla = db.tabla.Find(Id);

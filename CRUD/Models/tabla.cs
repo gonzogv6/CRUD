@@ -17,6 +17,6 @@ namespace CRUD.Models
         public int id { get; set; }
         public string nombre { get; set; }
         public string correo { get; set; }
-        public System.DateTime fecha_nacimiento { get; set; }
+        public Nullable<System.DateTime> fecha_nacimiento { get; set; }
     }
 }

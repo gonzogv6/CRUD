@@ -9,10 +9,10 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="nombre" Type="nchar" MaxLength="255" Nullable="false" />
-          <Property Name="correo" Type="nchar" MaxLength="255" Nullable="false" />
-          <Property Name="fecha_nacimiento" Type="datetime" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="255" />
+          <Property Name="correo" Type="varchar" MaxLength="255" />
+          <Property Name="fecha_nacimiento" Type="datetime" />
         </EntityType>
         <EntityContainer Name="CRUDModelStoreContainer">
           <EntitySet Name="tabla" EntityType="Self.tabla" Schema="dbo" store:Type="Tables" />
@@ -26,12 +26,12 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="255" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="correo" Type="String" MaxLength="255" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="fecha_nacimiento" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="correo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_nacimiento" Type="DateTime" Precision="3" />
         </EntityType>
-        <EntityContainer Name="CRUDEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="CRUDEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="tabla" EntityType="Self.tabla" />
         </EntityContainer>
       </Schema>
@@ -39,7 +39,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="CRUDModelStoreContainer" CdmEntityContainer="CRUDEntities">
+        <EntityContainerMapping StorageEntityContainer="CRUDModelStoreContainer" CdmEntityContainer="CRUDEntities1">
           <EntitySetMapping Name="tabla">
             <EntityTypeMapping TypeName="CRUDModel.tabla">
               <MappingFragment StoreEntitySet="tabla">
