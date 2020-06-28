@@ -2,7 +2,8 @@
 @{
     ViewBag.Title = "Mis Datos";
 }
-
+<br />
+<br />
 <h2>@ViewBag.Tittle</h2>
 
 <div class="row" style="text-align:right;padding:5px;">
@@ -15,6 +16,7 @@
                 <th>#</th>
                 <th>Nombre</th>
                 <th>Correo</th>
+                <th></th>
             </tr>
             @foreach (var Elemento in Model)
             {
@@ -22,6 +24,10 @@
                     <td>@Elemento.Id</td>
                     <td>@Elemento.Nombre</td>
                     <td>@Elemento.Correo</td>
+                    <td>
+                        <a class="btn btn-default" href="/Tabla/Editar/@Elemento.Id">Editar</a>
+                        <a  class="btn btn-danger" href="/Tabla/Eliminar/@Elemento.Id">Eliminar</a>
+                    </td>
                 </tr>
             }
         </table>
